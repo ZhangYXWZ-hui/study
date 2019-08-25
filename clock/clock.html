@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body style="background: #fffac0">
+    <div id="showTime">
+        <img src="./images/0.png" alt="">
+        <img src="./images/0.png" alt="">
+        <!-- <img src="./images/10.jpg" alt=""> -->:
+        <img src="./images/0.png" alt="">
+        <img src="./images/0.png" alt="">
+        <!-- <img src="./images/10.jpg" alt=""> -->:
+        <img src="./images/0.png" alt="">
+        <img src="./images/0.png" alt="">
+
+    </div>
+    <script>
+        function zero(n) {
+            return n < 10 ? '0' + n : n
+        }
+
+        function tickText() {
+            var oShowTime = document.getElementById('showTime');
+            var img = oShowTime.getElementsByTagName('img');
+            // 创建一个时间对象
+            var oDate = new Date();
+            // var oGetYear = oDate.getFullYear();  // 年
+            // var oGetMonth = zero(oDate.getMonth() + 1);  // 月
+            // var oGetDate = zero(oDate.getDate());  // 日
+            var oGetHours = zero(oDate.getHours());// 时
+            var oGetMinutes = zero(oDate.getMinutes());  // 分
+            var oGetSeconds = zero(oDate.getSeconds());  // 秒
+
+            var pTime = ''+ oGetHours + oGetMinutes + oGetSeconds;
+            for(var i=0; i<img.length;i++){
+                img[i].src = './images/' + pTime.charAt(i) +'.png';
+            }
+
+            // img[0].src = './images/' + parseInt(oGetHours / 10) + '.png';
+            // img[1].src = './images/' + oGetHours % 10 + '.png';
+            // img[3].src = './images/' + parseInt(oGetMinutes / 10) + '.png';
+            // img[4].src = './images/' + oGetMinutes % 10 + '.png';
+            // img[6].src = './images/' + parseInt(oGetSeconds / 10) + '.png';
+            // img[7].src = './images/' + oGetSeconds % 10 + '.png';
+
+
+            // oShowTime.innerHTML = '<span>' + oGetYear + '</span>年<span>' + oGetMonth + '</span>月<span>' +
+            //     oGetDate + '</span>日<span>' + oGetHours + '</span>时<span>' + oGetMinutes + '</span>分<span>' + oGetSeconds + '</span>秒'
+        }
+        setInterval(tickText, 1000)
+        tickText()
+    </script>
+</body>
+
+</html>
