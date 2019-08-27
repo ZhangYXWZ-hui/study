@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        button {
+            display: block;
+            width: 100px;
+            height: 50px;
+            margin-top: 20px;
+            margin-left: 30px;
+            outline: none;
+            border: 0;
+            border-radius: 5px;
+        }
+
+        #test {
+            width: 600px;
+            height: 20px;
+            padding: 6px;
+            border: 1px solid #000;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="" id="text" cols="30" rows="10"></textarea>
+    <button onclick="change()">转换</button>
+    <button onclick="back()">清空</button>
+    <div id="test"></div>
+</body>
+
+</html>
+<script>
+    var input = document.getElementById('text');
+    var num1 = [];
+
+    function change() {
+        var num = input.value.split(/\D+/);
+        console.log(typeof num)
+        console.log(num);
+        var b = num.length;
+        for (var i = 0; i < b; i++) {
+            num1.push(num.pop())
+        }
+        document.getElementById('test').innerHTML = num1;
+    }
+    function back(){
+        document.getElementById('test').innerHTML = '';
+        document.getElementById('text').value = '';
+        num1 = [];
+    }
+
+    // var j = num.length-1;
+    // for(var i=0;i<num.length;i++){
+    //     num1[j]= num[i];
+    //     j--;
+    // }
+
+</script>

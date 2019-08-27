@@ -1,0 +1,15 @@
+<script>
+    function factory(name,age,job){
+        var peo = {
+            name:name,
+            age:age,
+            job:job,
+            say:function(){
+                return "My name is "+name+" , "+"I am a "+job;
+            }
+        }
+        return peo;
+    }
+    var peo1 = factory("Tom",22,"programmer");
+    alert(peo1.say())
+</script>

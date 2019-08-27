@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 500px;
+            height: 50px;
+            border: 1px solid #000;
+            margin-top: 30px;
+        }
+        p{
+            width: 500px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 40px;
+            font-weight: 700; 
+        }
+    </style>
+</head>
+<body>
+    <p>快来点我啊</p>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <script>
+        function btn(div){
+            var color = ['red','yellow','blue','green','orange'];
+            var Div = document.getElementById(div);
+            var index = 0;
+            Div.onclick=function(){
+                Div.style.background = color[index];
+                if(index<color.length-1){
+                    index++
+                }else{
+                    index=0
+                } 
+            }
+        }
+        btn('div1');
+        btn('div2');
+        btn('div3');
+    </script>
+</body>
+</html>

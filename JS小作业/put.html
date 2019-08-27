@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .flexed{
+            display: flex;
+            justify-content: space-between;
+        }
+        input{
+            display: block;
+            width: 80%;
+            height: 30px;
+            padding: 3px 6px;
+            outline: none;
+            background: #fff;
+        }
+        button{
+            width: 20%;
+            height: 40px;
+            background: #bd2c2c;
+            color: #fff;
+            outline: none;
+            border: 0;
+        }
+        #div1{
+            width: 535px;
+            margin: 0 auto;
+        }
+        #div2{
+            box-sizing: border-box;
+            width: 535px;
+            height: 300px;
+            border: 1px solid #000;
+            border-top: 0;
+            margin: 0 auto;
+            overflow: hidden;
+            padding-left: 10px;
+        }
+        #title{
+            text-align: center;
+            font-size: 30px;
+            font-weight: 800;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div id="title"></div>
+    <div id="div1" class="flexed">
+        <input type="text" placeholder="请留言">
+        <button onclick="change()">留言</button>
+    </div>
+    <div id="div2"></div>
+    <script>
+        var a = document.getElementsByTagName('input')[0];
+        var mess = document.getElementById('div2');
+        var title = document.getElementById('title')
+        function change(){
+            var regExp = /^\s*$/;
+            if(regExp.test(a.value)){
+                title.innerHTML = "提交失败";
+                title.style.color = 'red';
+                a.value = ''
+            }else{
+                title.innerHTML = "提交成功";
+                title.style.color = 'black';
+                mess.innerHTML = "<p>"+a.value+"</p>"+mess.innerHTML;
+                a.value = ''
+            }
+        }
+    </script>
+</body>
+</html>
