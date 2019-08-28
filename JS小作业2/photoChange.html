@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>photo</title>
+    <style>
+        #div1{
+            width: 500px;
+            height: 300px;
+            position: relative;
+        }
+        #pre{
+            width: 50%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            z-index: 100;
+        }
+        #next{
+            width: 50%;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            z-index: 100;
+        }
+        #img{
+            width: 100%;
+            height: 100%;
+        }
+        #title{
+            width: 100%;
+            height: 60px;
+            position: absolute;
+            bottom: 0;
+            z-index: 200;
+            background: #000;
+            opacity: 0.5;
+        }
+        #test{
+            width: 100%;
+            height: 60px;
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+            line-height: 60px;
+            color: #fff;
+            font-size: 20px;
+            z-index: 300;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <a id="pre" href="javascript:;"></a>
+        <a id="next" href="javascript:;"></a>
+        <img id="img" src="./images/1.jpg" alt="">
+        <div id="title"></div>
+        <div id="test">惊讶的哈士奇</div>
+    </div>
+    <script>
+        var pre = document.getElementById('pre');
+        var next = document.getElementById('next');
+        var img = document.getElementById('img');
+        var title = document.getElementById('title');
+        var test = document.getElementById('test');
+        var undertitle = ['惊讶的哈士奇','戴眼镜的哈士奇','犯困的哈士奇','爱浪的哈士奇','智障的哈士奇','帅帅的哈士奇'];
+        var i = 1;
+        pre.onclick = function(){
+            i--;
+            if(i == 0){
+                i = 6;
+            }
+            img.src = './images/'+i+'.jpg';
+            test.innerHTML = undertitle[i-1];
+        }
+        next.onclick = function(){
+            i++;
+            if(i == 7){
+                i = 1;
+            }
+            img.src = './images/'+i+'.jpg';
+            test.innerHTML = undertitle[i-1];
+        }
+        // pre.onclick = function(){
+        //     if(i == 1){
+        //         i = 7;
+        //     }
+        //     i--;
+        //     img.src = './images/'+i+'.jpg';
+        //     test.innerHTML = undertitle[i-1];   
+        // }
+        // next.onclick = function(){ 
+        //     if(i == 6){
+        //         i = 0;
+        //     }
+        //     i++;
+        //     img.src = './images/'+i+'.jpg';
+        //     test.innerHTML = undertitle[i-1];
+        // }
+    </script>
+</body>
+</html>

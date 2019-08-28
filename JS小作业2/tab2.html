@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tab2</title>
+    <style>
+        ul li {
+            list-style-type: none;
+        }
+        #outside {
+            width: 500px;
+            height: 400px;
+            margin-top: 50px;
+            border: 1px solid #ccc;
+            margin: 0 auto;
+        }
+        header {
+            width: 500px;
+            height: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+        span {
+            display: block;
+            width: 125px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background: #eee;
+            cursor: pointer;
+        }
+        .active {
+            color: #fff;
+            background: red;
+        }
+        .show {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outside">
+        <header>
+            <span class="active">新闻</span>
+            <span>美女</span>
+            <span>美食</span>
+            <span>广厦</span>
+        </header>
+        <div>
+            <ul>
+                <li>新闻</li>
+            </ul>
+            <ul class="show">
+                <li>美女</li>
+            </ul>
+            <ul class="show">
+                <li>美食</li>
+            </ul>
+            <ul class="show">
+                <li>广厦</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var out = document.getElementById('outside');
+        var sp = out.getElementsByTagName('span');
+        var aul = out.getElementsByTagName('ul');
+        var prev = sp[0];
+
+        for(var i=0;i<sp.length;i++){
+            sp[i].id = i;
+            sp[i].onclick=function(){
+                prev.className = '';
+                aul[prev.id].style.display = 'none';
+                this.className = 'active';
+                aul[this.id].style.display = 'block';
+                prev = this;
+            }
+        }
+    </script>
+</body>
+
+</html>

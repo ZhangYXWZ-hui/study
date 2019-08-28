@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>src&&href</title>
+    <script>
+        window.onload = function () {
+            var img = document.getElementsByTagName('img');
+            var link = document.getElementsByTagName('a');
+
+            img[0].src = './images/cat.jpg';
+            img[1].setAttribute('src','./images/dog.jpg');
+
+            link[0].href = 'https://www.baidu.com';
+            link[1].setAttribute('href','https://github.com');  
+        }
+
+    </script>
+</head>
+
+<body>
+    <img src="" alt="">
+    <img src="" alt="">
+    <a href="">baidu</a>
+    <a href="">github</a>
+</body>
+
+</html>
